@@ -1,0 +1,3 @@
+#sensitive info
+postgres/database.ini
+serverless.yaml
