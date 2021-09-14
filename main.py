@@ -1,11 +1,7 @@
 import uvicorn
-from typing import Optional, List
 from fastapi import FastAPI
-from mangum import Mangum
-from pydantic import BaseModel
 
-from models import Item, Plan, Task
-import postgres_service
+from models.models import Item, Plan, Coupon, User
 
 root_path = '/'
 app = FastAPI(root_path=root_path)
@@ -32,6 +28,18 @@ async def create_item(item: Item):
 async def create_plan(plan: Plan):
     print(plan)
     return plan
+
+####################################################################################
+# hotel operations connected to their client
+@app.post("/create/")
+async def create_coupon(coupon: Coupon):
+    # todo: instantiate coupon and add to list of coupons
+    print(coupon)
+    return coupon
+
+@app.post("/delete/")
+async def delete_coupon(coupon: Coupon):
+
 
 #https://pypi.org/project/mangum/
 #handler = Mangum(app)
