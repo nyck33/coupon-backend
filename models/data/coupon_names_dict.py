@@ -1,15 +1,6 @@
-import enum
+from coupon_type_enum import CouponType
 
-class CouponType(enum.Enum):
-    meal = 1
-    breakfast = 2
-    lunch = 3
-    dinner = 4
-    stay = 5
-    other = 6
-
-
-CouponName = {
+coupon_name_d = {
     CouponType.meal: '食事割引クーポン',
     CouponType.breakfast: '朝食割引クーポン',
     CouponType.lunch: '昼食割引クーポン',
@@ -17,4 +8,6 @@ CouponName = {
     CouponType.stay: '宿泊割引クーポン',
     CouponType.other: 'ダミー・クーポン'
 }
+
+
 

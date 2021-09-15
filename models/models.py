@@ -23,12 +23,28 @@ class Coupon(BaseModel):
     isUsed: bool
     imageExists: bool
     details: str
-    imageUrl: Optional[str]
+    imageUrl: Optional[str] = None
     couponName: str
+
+class Coupons(BaseModel):
+    '''
+    for hotels read
+    '''
+    coupons: List[Coupon]
+
+#todo: divide this into 4 CRUD classes
+class Hotel(BaseModel):
+    hotelId: str
+    password: str
+    command: str #CRUD
+
 
 class User(BaseModel):
     userId: Optional[int] = None
     name: str
+    email: str
+    loginStatus: str
+    currentScreen: str
     hotel: Optional[str] = None
     room: Optional[str] = None
     arrivalDate: Optional[str] = None
@@ -37,7 +53,8 @@ class User(BaseModel):
     avatarUrl: Optional[str] = None
     coupons: List[Coupon]
 
-
+class Users(BaseModel):
+    users: Optional[List[User]] = None
 
 
 

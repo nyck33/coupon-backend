@@ -24,6 +24,12 @@ def create_tables():
         )
         """,
         """
+        CREATE TABLE users(
+            userId SERIAL PRIMARY KEY,
+            name VARCHAR(255) NOT NULL,
+            
+        """,
+        """
         CREATE TABLE tasks(
             task_id SERIAL PRIMARY KEY,
             plan_id INTEGER,
