@@ -2,7 +2,7 @@ import uvicorn
 from fastapi import FastAPI
 
 from models.models import Plan, Coupon, Coupons, User, Hotel
-from interfaces import hotel_interface, users_interface
+#from interfaces import hotel_interface, users_interface
 
 root_path = '/'
 app = FastAPI(root_path=root_path)
