@@ -16,7 +16,7 @@ async def root():
     return {"error message": "specify path"}
 
 @app.get("/items/{some_string}")
-async def read_item(some_string): #just a string
+async def read_item(some_string: str): #just a string
     return {"item_id": some_string}
 
 
