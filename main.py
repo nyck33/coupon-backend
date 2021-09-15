@@ -26,22 +26,6 @@ async def create_plan(plan: Plan):
     return plan
 
 ####################################################################################
-# hotel operations connected to their client
-@app.post("/hotel-commands/")
-async def run_command(hotel: Hotel):
-    '''
-    todo: command should be divided up into CRUD with classes for each command with hotel_id and password, command is
-     in the path of URL
-    :param hotel:
-    :return:
-    '''
-    id = hotel.hotelId
-    password = hotel.password
-    command = hotel.command
-    #todo: run functions here to check id, password and run command on postgres
-    print(hotel)
-    return hotel
-
 ################################################################################################
 # user ops
 # user ops, on tap of coupon card
@@ -57,7 +41,7 @@ async def check_for_new_coupons(user: User):
     print(f"user: {user}")
     return user
 
-@app.post("user-update-coupons", response_model=User)
+@app.post("/user-update-coupons/", response_model=User)
 async def update_coupons(user: User):
     '''
     user uses coupon so update the isUsed and return User
@@ -67,6 +51,14 @@ async def update_coupons(user: User):
     print(user)
     return user
 
+@app.post("/user-delete-coupons", response_model=User)
+async def delete_coupons(user:User):
+    '''
+    when user checks out
+    :param user:
+    :return:
+    '''
+    return user
 
 
 

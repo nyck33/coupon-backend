@@ -8,26 +8,11 @@ Task: id: int
 plan_id: int (fk)
 desc: varchar
 complete: int 0 or 1
-
-'''
-import psycopg2
-from .config_parser import config
-
-
-
-def create_tables():
-    commands = (
-        """
+"""
         CREATE TABLE plans(
             plan_id SERIAL PRIMARY KEY,
-            plan_name VARCHAR(255) NOT NULL 
+            plan_name VARCHAR(255) NOT NULL
         )
-        """,
-        """
-        CREATE TABLE users(
-            userId SERIAL PRIMARY KEY,
-            name VARCHAR(255) NOT NULL,
-            
         """,
         """
         CREATE TABLE tasks(
@@ -38,6 +23,44 @@ def create_tables():
             FOREIGN KEY(plan_id)
                 REFERENCES plans (plan_id)
                 ON UPDATE CASCADE ON DELETE CASCADE
+        )
+        """,
+
+'''
+import psycopg2
+from .config_parser import config
+
+
+def create_tables():
+    commands = (
+        """
+        CREATE TABLE users(
+            userId SERIAL PRIMARY KEY,
+            name VARCHAR(255) NOT NULL,
+            email: VARCHAR (255) NOT NULL,
+            loginStatus: VARCHAR(255) NOT NULL,
+            currentScreen: VARCHAR(255) NOT NULL,
+            hotel: VARCHAR(255),
+            room: VARCHAR(255),
+            arrivalDate: VARCHAR(255),
+            departDate: VARCHAR(255),
+            avatarExists: BOOLEAN NOT NULL,
+            avatarUrl: VARCHAR(255),
+        """,
+        """
+        CREATE TABLE user_coupons(
+            issueId: SERIAL PRIMARY KEY,
+            couponId: INTEGER NOT NULL,
+            couponType: VARCHAR(255) NOT NULL,
+            hotelName: VARCHAR(255) NOT NULL,
+            expiryDate: VARCHAR(255),
+            couponAmount: VARCHAR(255),
+            usedOn: VARCHAR(255), 
+            isUsed: BOOLEAN NOT NULL,
+            imageExists: BOOLEAN NOT NULL,
+            details: VARCHAR(255) NOT NULL,
+            imageUrl: VARCHAR(255),
+            couponName: VARCHAR(255) NOT NULL 
         )
         """
     )

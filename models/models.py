@@ -26,7 +26,7 @@ class Coupon(BaseModel):
     imageUrl: Optional[str] = None
     couponName: str
 
-class Coupons(BaseModel):
+class Coupons(BaseModel): #select all from table Coupons'7
     '''
     for hotels read
     '''
@@ -53,7 +53,7 @@ class User(BaseModel):
     avatarUrl: Optional[str] = None
     coupons: List[Coupon]
 
-class Users(BaseModel):
+class Users(BaseModel): #select all frm table Users
     users: Optional[List[User]] = None
 
 
