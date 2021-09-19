@@ -29,9 +29,12 @@ async def create_plan(plan: Plan):
 ################################################################################################
 # user ops
 # user ops, on tap of coupon card
-@app.post("/user-check-new-coupons/", response_model=User)
+
+
+@app.get("/get-all-coupons/", response_model=User)
 async def check_for_new_coupons(user: User):
     '''
+    todo: make this a get request and just send coupons and check for any new ones in Flutter
     on tap of coupons card in UI
     request payload is current user coupons so check against list of available coupons on server
     send back any new ones eligible for to refresh coupons page on Flutter UI

@@ -47,8 +47,8 @@ class User(BaseModel):
     currentScreen: str
     hotel: Optional[str] = None
     room: Optional[str] = None
-    arrivalDate: Optional[str] = None
-    departDate: Optional[str] = None
+    checkInDate: Optional[str] = None
+    checkOutDate: Optional[str] = None
     avatarExists: bool
     avatarUrl: Optional[str] = None
     coupons: List[Coupon]
