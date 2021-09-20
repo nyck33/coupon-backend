@@ -45,8 +45,8 @@ class User(BaseModel):
     email: str
     loginStatus: str
     currentScreen: str
-    hotel: Optional[str] = None
-    room: Optional[str] = None
+    hotelName: Optional[str] = None
+    roomNumber: Optional[str] = None
     checkInDate: Optional[str] = None
     checkOutDate: Optional[str] = None
     avatarExists: bool
