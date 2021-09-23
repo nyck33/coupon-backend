@@ -1,7 +1,7 @@
 import uvicorn
 from fastapi import FastAPI
 
-from models.models import AllCoupons, Plan, Coupon, Coupons, User, Hotel
+from models.models import AllCoupons, Plan, Coupon, AllUsers, User, Hotel
 from models.data.dummy_data import dummyUser, all_coupons
 #from interfaces import hotel_interface, users_interface
 
@@ -32,8 +32,8 @@ async def create_plan(plan: Plan):
 # user ops, on tap of coupon card
 
 
-@app.get("/get-all-coupons/", response_model=List[Coupon])
-async def check_for_new_coupons(user: User):
+@app.get("/get-all-coupons") #response_model=AllCoupons)
+async def check_for_new_coupons():
     '''
     todo: make this a get request and just send coupons and check for any new ones in Flutter
     on tap of coupons card in UI
