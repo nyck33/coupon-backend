@@ -17,7 +17,7 @@ dummyUserDict = {
 }
 
 c1 = Coupon(
-    couponId = 0, # enum
+    couponId = 100, # enum
     couponType = 'breakfast',
     hotelName = 'Hilton Tokyo',
     expiryDate = '2100-01-01',
@@ -26,12 +26,12 @@ c1 = Coupon(
     isUsed = False,
     imageExists = False,
     details = 'For free breakfast',
-    imageUrl = 'some image hosting url',
+    imageUrl = 'assets/images/starwars/Darth-Vader-icon.png',
     couponName = 'Breakfast discount coupon'
 )
 
 c2 = Coupon(
-    couponId = 1,
+    couponId = 101,
     couponType = 'dinner',
     hotelName = 'Hilton Kyoto',
     expiryDate = '2100-01-01',
@@ -40,7 +40,7 @@ c2 = Coupon(
     isUsed = False,
     imageExists = False,
     details = 'For free dinner',
-    imageUrl = 'some image hosting url',
+    imageUrl = 'assets/images/starwars/Darth-Vader-icon.png',
     couponName = 'Dinner discount coupon'
 )
 
