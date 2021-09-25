@@ -1,7 +1,7 @@
 import uvicorn
 from fastapi import FastAPI
 
-from models.models import Coupon, Coupons, User, Hotel
+from models.other_models import Coupon, Coupons, User, Hotel
 from interfaces import hotel_interface, users_interface
 
 

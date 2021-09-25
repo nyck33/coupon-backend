@@ -1,4 +1,5 @@
-from models.models import AllCoupons, User, Coupon, AllUsers
+from models.coupon_models import AllCoupons, Coupon
+from models.user_models import User, AllUsers
 
 
 dummyUserDict = {

@@ -3,8 +3,8 @@ get string couponType from json -> convert to enum
 any Python code uses the enum until save to psql -> string
 any load from psql: string -> enum
 '''
-from models.data.coupon_type_enum import CouponType
-from models.data.coupon_names_dict import coupon_name_d
+from other_models.data.coupon_type_enum import CouponType
+from other_models.data.coupon_names_dict import coupon_name_d
 import enum
 
 class CouponTypeEnumLoader(enum.Enum):

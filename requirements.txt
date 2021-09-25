@@ -1,3 +1,4 @@
+aiofiles
 alembic==1.7.1
 amqp==5.0.6
 appdirs==1.4.4
@@ -37,6 +38,7 @@ google-auth==2.0.2
 greenlet==1.1.1
 h11==0.12.0
 httptools==0.2.0
+httpx
 idna==3.2
 importlib-metadata==4.6.4
 importlib-resources==5.2.2
