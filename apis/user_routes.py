@@ -1,3 +1,8 @@
+'''
+virtualenv -p python3.9 env
+source ./env/bin/activate
+
+'''
 import fastapi
 from models.data.dummy_data import all_coupons
 from models.user_models import User

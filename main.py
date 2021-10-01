@@ -1,27 +1,23 @@
 import uvicorn
 import fastapi
-'''
-test_json = {"name": "Move out of house", "tasks":[{"description":"get storage",
-                                               "complete": "False"},
-                                              {"description":"get ispace",
-                                                "complete": "False"}]}
-'''
+from mangum import Mangum
+
 from apis import user_routes, other_routes, hotel_routes
 
-api = fastapi.FastAPI()
+app = fastapi.FastAPI()
 #router = fastapi.APIRouter()
 
 def configure():
     configure_routing()
 
 def configure_routing():
-    api.include_router(user_routes.router)
-    api.include_router(other_routes.router)
+    app.include_router(user_routes.router)
+    app.include_router(other_routes.router)
     #apis.include_router(hotel_routes.router)
 
 # for AWS
 #https://pypi.org/project/mangum/
-#handler = Mangum(app)
+handler = Mangum(app)
 
 
 if __name__=="__main__":
