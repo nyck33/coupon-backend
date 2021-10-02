@@ -25,10 +25,10 @@ jobs:
           name: Create Zipfile archive of Dependencies
           command: | 
             cd env/lib/python3.9/site-packages
-            zip -r9 ../../../../function.zip
+            zip -r9 ../../../../function.zip .
       - run:
           name: Add App to Zipfile
-          command: zip -g ./function.zip -r app
+          command: zip -g ./function.zip -r app .
 
 workflows:
   build-test-and-deploy:
