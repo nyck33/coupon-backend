@@ -2,12 +2,13 @@ version: 2.1
 
 orbs:
   python: circleci/python@1.2.1
+  aws-cli: circleci/aws-cli@1.4.1
 
 jobs:
   build-and-test:
     executor: 
       name: python/default
-      tags: '3.9'
+      tag: '3.9'
     steps:
       - checkout
       - run:
@@ -18,13 +19,52 @@ jobs:
       - run: 
           name: Install Dependencies 
           command: pip install -r requirements.txt
+      - run:
+          name: Test 
+          command: pytest 
+      - run:
+          name: Create Zipfile archive of Dependencies
+          command: | 
+            cd env/lib/python3.9/site-packages
+            zip -r9 ../../../../function.zip .
+      - run:
+          name: Add App to Zipfile
+          command: zip -g ./function.zip -r app .
+      - persist_to_workspace:
+          root: .
+          paths: 
+            - function.zip
+  deploy-dev:
+    executor: aws-cli/default
+    steps: 
+      - attach_workspace:
+          at: ./
+      - aws-cli/setup: 
+          aws-region: AWS_DEFAULT_REGION
+          aws-access-key-id: AWS_ACCESS_KEY_ID
+          aws-secret-access-key: AWS_SECRET_ACCESS_KEY
+      - run: 
+         name: Upload to S3 
+         command: aws s3 cp function.zip s3://serverless-fastapi-lambda-coupon/function.zip
+      - run: 
+          name: Deploy new Lambda 
+          command: aws lambda update-function-code --function-name lambda-coupon-backend:1 --s3-bucket serverless-fastapi-lambda-coupon --s3-key function.zip
 
 workflows:
   build-test-and-deploy:
     jobs: 
       - build-and-test:
+          context: cicd-fastapi-dev
           filters: 
             branches:
               only: 
-                - master
+                - aws
+      - deploy-dev:
+          context: cicd-fastapi-dev
+          requires:
+            - build-and-test
+          filters:
+            branches:
+              only: 
+                - aws
 
