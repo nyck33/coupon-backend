@@ -29,7 +29,7 @@ jobs:
             zip -r9 ../../../../function.zip .
       - run:
           name: Add App to Zipfile
-          command: zip -g ./function.zip .env -r app .
+          command: zip -g ./function.zip -r app .
       - persist_to_workspace:
           root: .
           paths: 
