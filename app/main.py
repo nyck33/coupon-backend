@@ -2,6 +2,18 @@
 # need to use rootpath dev for aws deploy
 # virtualenv for aws: virtualenv -p python3.9 env
 # source ./env/bin/activate
+'''
+circleci commands to remake function.zip
+cd env/lib/python3.9/site-packages
+zip -r9 ../../../../function.zip .
+cd ../../../../
+zip -g ./function.zip -r app
+or 
+zip -g ./function.zip .env -r app
+as seen here: https://github.com/deadbearcode/simple-serverless-fastapi-example/blob/serverless-fastapi-cicd-final/.circleci/config.yml
+for this tutorial: https://www.deadbear.io/serverless-fastapi-ci-cd-with-circleci/
+Also py3clean . from root to clear pycache and shrink size for AWS Lambda
+'''
 
 import uvicorn
 import fastapi
