@@ -60,6 +60,8 @@ workflows:
               only: 
                 - aws
       - deploy-dev:
+          requires:
+            - build-and-test
           context: cicd-fastapi-dev
           filters:
             branches:
