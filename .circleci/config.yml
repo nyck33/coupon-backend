@@ -48,8 +48,7 @@ jobs:
          command: aws s3 cp function.zip s3://serverless-fastapi-lambda-coupon/function.zip
       - run: 
           name: Deploy new Lambda 
-          command: aws lambda update-function-code --function-name 
-
+          command: aws lambda update-function-code --function-name lambda-coupon-backend --s3-bucket serverless-fastapi-lambda-coupon --s3-key function.zip
 
 workflows:
   build-test-and-deploy:
