@@ -1,12 +1,18 @@
 #https://github.com/tiangolo/fastapi/issues/2787
 # need to use rootpath dev for aws deploy
+# virtualenv for aws: virtualenv -p python3.9 env
+# source ./env/bin/activate
+
 import uvicorn
 import fastapi
 from mangum import Mangum
 
 from app.apis import other_routes, user_routes
 
-app = fastapi.FastAPI(root_path="/dev/")
+app = fastapi.FastAPI(
+    title="coupon-backend",
+    version=2.0,
+    root_path="/beta/")
 #router = fastapi.APIRouter()
 
 def configure():
