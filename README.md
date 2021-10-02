@@ -1,3 +1,2 @@
-# coupon_fastapi_postgres
-### バックエンドですが。
-### Test用にHerokuにデプロイ：https://todo-fastapi-flutter.herokuapp.com//plan/
+# coupon_fastapi
+# deployed to aws: https://oycvwin6xf.execute-api.us-west-2.amazonaws.com/beta/docs
