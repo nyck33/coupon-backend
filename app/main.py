@@ -17,6 +17,7 @@ Also py3clean . from root to clear pycache and shrink size for AWS Lambda
 
 import uvicorn
 import fastapi
+from fastapi.middleware.cors import CORSMiddleware
 from mangum import Mangum
 
 from app.apis import other_routes, user_routes
@@ -26,6 +27,15 @@ app = fastapi.FastAPI(
     version=2.0,
     root_path="/beta/")
 #router = fastapi.APIRouter()
+
+flutter_regex = 'http://localhost:[0-9]+'
+app.add_middleware(
+    CORSMiddleware,
+    allow_origin_regex = flutter_regex,
+    allow_credentials = True,
+    allow_methods = True,
+    allow_haaders= True
+)
 
 def configure():
     configure_routing()
