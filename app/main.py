@@ -34,7 +34,7 @@ app.add_middleware(
     allow_origin_regex = flutter_regex,
     allow_credentials = True,
     allow_methods = True,
-    allow_haaders= True
+    allow_headers= True
 )
 
 def configure():
