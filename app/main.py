@@ -33,8 +33,8 @@ app.add_middleware(
     CORSMiddleware,
     allow_origin_regex = flutter_regex,
     allow_credentials = True,
-    allow_methods = True,
-    allow_headers= True
+    allow_methods = ['*'],
+    allow_headers= ['*']
 )
 
 def configure():
