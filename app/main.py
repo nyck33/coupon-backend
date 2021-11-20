@@ -18,7 +18,7 @@ Also py3clean . from root to clear pycache and shrink size for AWS Lambda
 import uvicorn
 import fastapi
 from fastapi.middleware.cors import CORSMiddleware
-from mangum import Mangum
+#from mangum import Mangum
 
 from app.apis import other_routes, user_routes
 
@@ -47,7 +47,7 @@ def configure_routing():
 
 # for AWS
 #https://pypi.org/project/mangum/
-handler = Mangum(app)
+#handler = Mangum(app)
 
 
 if __name__=="__main__":
