@@ -28,9 +28,14 @@ app = fastapi.FastAPI(
     root_path="/beta/")
 #router = fastapi.APIRouter()
 
+origins = [
+    "http://coupon-firebase.web.app"
+]
+
 flutter_regex = 'http://localhost:[0-9]+'
 app.add_middleware(
     CORSMiddleware,
+    allow_origins=origins,
     allow_origin_regex = flutter_regex,
     allow_credentials = True,
     allow_methods = ['*'],
