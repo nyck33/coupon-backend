@@ -31,12 +31,12 @@ app = fastapi.FastAPI(
 flutter_regex = 'http://localhost:[0-9]+'
 
 origins = [
-    "https://coupon-firebase.web.app", flutter_regex
+    "https://coupon-firebase.web.app", 
 ]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=['*'],#origins,
     #allow_origin_regex = flutter_regex,
     allow_credentials = True,
     allow_methods = ['*'],
