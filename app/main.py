@@ -25,7 +25,8 @@ from app.apis import other_routes, user_routes
 app = fastapi.FastAPI(
     title="coupon-backend",
     version=2.0,
-    root_path="/beta/")
+    root_path="/")
+    #root_path="/beta/")
 #router = fastapi.APIRouter()
 
 flutter_regex = 'http://localhost:[0-9]+'
